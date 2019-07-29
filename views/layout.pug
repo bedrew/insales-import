@@ -1,0 +1,31 @@
+html
+  head
+    title Insales Import
+    script
+      include scripts/plugins.js
+      include scripts/layout.js
+      
+
+    block scripts
+    block styles
+
+    link(rel="stylesheet",href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css")
+
+    style
+      include styles/layout.css
+      include styles/plugins.css
+
+    
+  body
+    header
+      a(href="/")
+       .logo IMPORT && EXPORT
+      a(href="/tasks",class="light-button")
+       i(class="fa fa-download")
+       span задачи
+
+    div(class="content-wrapper")
+      block content
+    footer
+  
+     

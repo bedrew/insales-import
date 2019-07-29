@@ -1,0 +1,26 @@
+extends layout
+
+block content
+
+
+  div(style="flex: 1 1 50%;")
+    form(method="post",action="/tasks")
+      input(type='hidden',name="clean",value="files")
+      button(type="submit",class="button") Очистить файлы
+
+    div(class="files-body")
+      each val,index in files
+        a(class="file-link button",href=val,data-date=val.split('___')[1])
+          span магазин: #{val.split('___')[0]}
+          span дата: #{val.split('___')[1]}
+          span задача: #{val.split('___')[2]}
+
+  
+  div(style="flex: 1 1 50%;")
+    form(method="post",action="/tasks")
+      input(type='hidden',name="clean",value="tasks")
+      button( type="submit", class="button") Очистить ключи
+   
+      
+    div(class="tasks-json" data-tasks=tasks)
+     

@@ -1,0 +1,26 @@
+extends layout
+
+block styles
+  style
+    include plugins/style.min.css
+  style
+    include styles/filters.css
+
+block scripts
+  script
+    include plugins/jstree.min.js
+  script
+    include scripts/filters.js
+
+block content
+  div(class="filters-body")
+    div(class="collection-selector")
+     span.block-header Выберите категории для экспорта seo фильтров
+     div(data-collections=collections)
+     form
+      input(type='hidden',data-selected-input,name="collections")
+      div(data-selected) Всего выбранно 0 категорий на экспорт
+    
+     div(class='button select-all-tree') Выбрать все
+     div(class='button submit-tree') Сформировать файл
+  div(class="request-result")

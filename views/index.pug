@@ -1,0 +1,42 @@
+extends layout
+
+block styles
+ style
+  include styles/index.css
+
+block scripts
+ script
+  include scripts/index.js
+
+block content
+   div(class='form-wrap upload-form')
+    form(action="/",method="post",enctype="multipart/form-data")
+
+      label(for="apikey") 
+        span Идентификатор 
+        input(type="text",name="apikey")
+
+      label(for="password") 
+        span Пароль
+        input(type="text",name="password")
+
+      label(for="shopurl")
+        span URL Магазина
+         span(style="color:gray;text-transform:uppercase;font-size:11px;") (без http)
+        input(type="text",name="shopurl")
+
+      label( for="import-document" , class="file-upload button" )
+        i(class="fa fa-cloud-upload") 
+        span Файл (Если вы делаете импорт)
+        input(type="file",id="import-document",name="importdocument")
+
+      input(type="hidden",name="redirect")
+
+      .buttons
+        include buttons
+   div(class='opened-shops')
+      span Открытые магазины
+      each val,id in shop
+        button( class="button", data-id=id) #{id}  
+         div(class="hidden-buttons") 
+          a(class="button",href="/filters/export/"+id) Экспорт seo-фильтров

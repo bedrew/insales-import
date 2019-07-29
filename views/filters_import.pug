@@ -1,0 +1,41 @@
+extends layout
+
+block styles
+  style
+    include styles/collections.css
+  style
+    include plugins/style.min.css
+  style
+    include styles/filters.css
+
+block scripts
+  script
+    include scripts/collections.js
+
+block content
+  div(class="form-wrap")
+        p В файле найдено #{line.length} столбцов
+        p Укажите соответсвие
+        form(action="/config",method="post")
+
+          each val,index in line
+            label.select-wrap 
+              span Cтолбец №#{index + 1}
+                select(name='field_'+index)
+                    option(value="")
+                    option(value="id") ID категории
+                    option(value="title") Название
+                    option(value="description") Описание
+                    option(value="seo_description") Доп описание
+                    option(value="html_title") Тег title
+                    option(value="meta_keywords") Мета-тег keywords
+                    option(value="meta_description") Мета-тег description
+                    each property in Properties
+                        option(value=`property_${property}`) Параметр - #{property}
+                    each option in Options
+                        option(value=`option_${option}`) Свойство #{option}
+
+              span.file-example Пример: #{val}
+
+          span(class="button submit-import-config") Отправить
+  div(class="request-result")        

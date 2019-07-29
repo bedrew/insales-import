@@ -1,0 +1,19 @@
+module.exports = {
+  apps : [{
+    name: 'INSALES IMPORT',
+    script: 'index.js',
+    args: 'one two',
+    instances: 1,
+    autorestart: true,
+    watch: true, 
+    node_args : ["--inspect"],
+    ignore_watch: ['node_modules','uploads','files'],
+    max_memory_restart: '1G',
+    env: {
+      NODE_ENV: 'development'
+    },
+    env_production: {
+      NODE_ENV: 'production'
+    }
+  }]
+};

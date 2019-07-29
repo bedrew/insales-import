@@ -1,0 +1,11 @@
+.collection-selector [data-collections] {
+    overflow: scroll;
+    height: 65vh;
+    overflow-x: hidden;
+    box-shadow: 0 0 1px rgba(0,0,0,0.25);
+}
+.filters-body {
+    display: flex;
+    justify-content: space-between;
+    
+}
